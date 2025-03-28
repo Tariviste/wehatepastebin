@@ -84,8 +84,8 @@ end;
 local function v55(v18, v19) --[[ Line: 97 ]] --[[ Name: doText ]]
     v19 = v19 or l_LocalPlayer_0;
     local v20 = l_LocalPlayer_0.PlayerGui:FindFirstChild(v19.Name .. "KJUI") or KJDialogue:Clone();
-    v20.Holder.Template.Name.TextColor3 = _G.JKMode and Color3.fromRGB(61, 77, 255) or Color3.fromRGB(222, 46, 46)
-    v20.Holder.ImageLabel.Image = _G.JKMode and "rbxassetid://89244135005359" or "rbxassetid://17372119511"
+    v20.Holder.Template:FindFirstChildOfClass("TextLabel").TextColor3 = _G.JKMode and Color3.fromRGB(61, 77, 255) or Color3.fromRGB(222, 46, 46)
+    v20.Holder.Template.ImageLabel.Image = _G.JKMode and "rbxassetid://89244135005359" or "rbxassetid://17372119511"
     local v21 = "";
     local v22 = 0;
     local v23 = 0;
