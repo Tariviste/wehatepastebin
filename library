@@ -1,5 +1,5 @@
 local v0 = {
-    EFP = workspace.Thrown
+    EFP = game.Workspace.Thrown
 };
 local v1 = loadstring(game:HttpGet("https://raw.githubusercontent.com/Tariviste/wehatepastebin/refs/heads/main/boattween"))();
 local l_TweenService_0 = game:GetService("TweenService");
@@ -16,15 +16,18 @@ v0.ProcessPart = function(v3) --[[ Line: 21 ]]
     end;
 end;
 v0.PlayTween = function(v11, v12, v13) --[[ Line: 35 ]]
+    -- upvalues: v1 (copy)
     local v14 = v1:Create(v11, v12);
     v14:Play();
     local v15 = v14.Completed:Once(function() --[[ Line: 39 ]]
+        -- upvalues: v13 (copy), v14 (copy)
         if v13 then
             v13();
         end;
         v14:Destroy();
     end);
     task.delay(v12.Time, function() --[[ Line: 45 ]]
+        -- upvalues: v15 (copy), v14 (copy)
         v15:Disconnect();
         v14:Destroy();
     end);
@@ -35,6 +38,7 @@ v0.Impact = function(v16) --[[ Line: 55 ]]
     local v17 = v16:Clone();
     v17.Parent = game.Lighting;
     delay(0.1, function() --[[ Line: 58 ]]
+        -- upvalues: v17 (copy)
         v17:Destroy();
     end);
 end;
@@ -78,9 +82,10 @@ local v31 = RaycastParams.new();
 v31.FilterType = Enum.RaycastFilterType.Include;
 v31.FilterDescendantsInstances = {
     workspace.Built, 
-    workspace.__WORLD.__MAP
+    workspace.Map
 };
 v0.SetSmoke = function(v32) --[[ Line: 108 ]]
+    -- upvalues: v31 (copy)
     local l_FX_1 = v32.FX;
     local v34 = v32.Dist or 20;
     local l_Anchor_0 = v32.Anchor;
@@ -107,6 +112,7 @@ v0.BindScale = function(v40) --[[ Line: 130 ]]
     local v44 = l_Maid_1:give(Instance.new("NumberValue"));
     v44.Value = v43;
     v44:giveTask(v44.Changed:Connect(function() --[[ Line: 137 ]]
+        -- upvalues: l_FX_2 (copy), v44 (copy)
         l_FX_2:ScaleTo(v44.Value);
     end));
     return v44;
@@ -130,6 +136,7 @@ v0.Able = function(v45) --[[ Line: 144 ]]
     end;
 end;
 v0.WeldObject = function(...) --[[ Line: 163 ]]
+    -- upvalues: l_TweenService_0 (copy)
     local v51, v52, v53, v54, v55, v56 = ...;
     local v57 = v51:Clone();
     local l_Weld_0 = Instance.new("Weld");
@@ -142,6 +149,7 @@ v0.WeldObject = function(...) --[[ Line: 163 ]]
         for _, v60 in pairs(v57:GetDescendants()) do
             if v60:IsA("ParticleEmitter") or v60:IsA("Trail") then
                 task.delay(v53, function() --[[ Line: 179 ]]
+                    -- upvalues: v60 (copy), v57 (copy)
                     v60.Enabled = false;
                     task.wait(2);
                     v57:Destroy();
@@ -151,6 +159,7 @@ v0.WeldObject = function(...) --[[ Line: 163 ]]
         return;
     elseif v56 then
         task.delay(v55, function() --[[ Line: 189 ]]
+            -- upvalues: v57 (copy)
             for _, v62 in pairs(v57:GetDescendants()) do
                 if v62:IsA("BasePart") then
                     v62.Transparency = 1;
@@ -172,12 +181,14 @@ v0.WeldObject = function(...) --[[ Line: 163 ]]
         return;
     elseif v55 then
         task.delay(v55, function() --[[ Line: 203 ]]
+            -- upvalues: v57 (copy)
             v57:Destroy();
         end);
         return;
     else
         if v54 then
             task.delay(v54, function() --[[ Line: 208 ]]
+                -- upvalues: l_Weld_0 (copy), v57 (copy), l_TweenService_0 (ref)
                 l_Weld_0:Destroy();
                 v57.Parent = workspace.Effects;
                 task.wait(0.08);
@@ -207,6 +218,7 @@ v0.WeldObject = function(...) --[[ Line: 163 ]]
     end;
 end;
 v0.QuickWeld = function(v73) --[[ Line: 229 ]]
+    -- upvalues: v0 (copy)
     local l_FX_4 = v73.FX;
     local v75 = v73.C0 or CFrame.new(0, 0, 0);
     local l_P_0 = v73.P;
@@ -226,6 +238,7 @@ v0.QuickWeld = function(v73) --[[ Line: 229 ]]
     return l_FX_4, l_Weld_1;
 end;
 v0.QuickFX = function(v79) --[[ Line: 252 ]]
+    -- upvalues: v31 (copy), v0 (copy)
     local l_FX_5 = v79.FX;
     local l_Anchor_1 = v79.Anchor;
     local l_Maid_3 = v79.Maid;
@@ -278,6 +291,7 @@ v0.RaiseZIndex = function(v94) --[[ Line: 311 ]]
     end;
 end;
 v0.WeldObject = function(...) --[[ Line: 322 ]]
+    -- upvalues: l_TweenService_0 (copy)
     local v99, v100, v101, v102, v103, v104 = ...;
     local v105 = v99:Clone();
     local l_Weld_2 = Instance.new("Weld");
@@ -290,6 +304,7 @@ v0.WeldObject = function(...) --[[ Line: 322 ]]
         for _, v108 in pairs(v105:GetDescendants()) do
             if v108:IsA("ParticleEmitter") or v108:IsA("Trail") then
                 task.delay(v101, function() --[[ Line: 338 ]]
+                    -- upvalues: v108 (copy), v105 (copy)
                     v108.Enabled = false;
                     task.wait(2);
                     v105:Destroy();
@@ -299,6 +314,7 @@ v0.WeldObject = function(...) --[[ Line: 322 ]]
         return;
     elseif v104 then
         task.delay(v103, function() --[[ Line: 348 ]]
+            -- upvalues: v105 (copy)
             for _, v110 in pairs(v105:GetDescendants()) do
                 if v110:IsA("BasePart") then
                     v110.Transparency = 1;
@@ -320,12 +336,14 @@ v0.WeldObject = function(...) --[[ Line: 322 ]]
         return;
     elseif v103 then
         task.delay(v103, function() --[[ Line: 362 ]]
+            -- upvalues: v105 (copy)
             v105:Destroy();
         end);
         return;
     else
         if v102 then
             task.delay(v102, function() --[[ Line: 367 ]]
+                -- upvalues: l_Weld_2 (copy), v105 (copy), l_TweenService_0 (ref)
                 l_Weld_2:Destroy();
                 v105.Parent = workspace.Effects;
                 task.wait(0.08);
@@ -355,10 +373,12 @@ v0.WeldObject = function(...) --[[ Line: 322 ]]
     end;
 end;
 v0.PlayAttachment = function(v121, v122, v123) --[[ Line: 388 ]]
+    -- upvalues: v31 (copy), v0 (copy)
     local v124 = nil;
     if not v121:IsA("Part") and v121:IsA("Model") then
         v124 = v121.PrimaryPart;
     end;
+    print(v124);
     local v125 = false;
     if v124 then
         v125 = game.Workspace:Raycast(v124.Position, Vector3.new(0, -10, 0, 0), v31) and true or false;
@@ -374,9 +394,11 @@ v0.PlayAttachment = function(v121, v122, v123) --[[ Line: 388 ]]
             local l_l_v127_Attributes_0_0 = l_v127_Attributes_0 --[[ copy: 10 -> 16 ]];
             local l_l_RepeatDelay_0_0 = l_RepeatDelay_0 --[[ copy: 13 -> 17 ]];
             task.spawn(function() --[[ Line: 417 ]]
+                -- upvalues: l_v130_0 (copy), l_l_EmitDelay_0_0 (copy), v127 (copy), l_l_v127_Attributes_0_0 (copy), l_l_RepeatDelay_0_0 (copy)
                 for _ = 1, l_v130_0 do
                     if l_l_EmitDelay_0_0 then
                         task.delay(l_l_EmitDelay_0_0, function() --[[ Line: 420 ]]
+                            -- upvalues: v127 (ref), l_l_v127_Attributes_0_0 (ref)
                             v127:Emit(l_l_v127_Attributes_0_0.EmitCount);
                         end);
                     else
@@ -385,6 +407,7 @@ v0.PlayAttachment = function(v121, v122, v123) --[[ Line: 388 ]]
                     if l_l_v127_Attributes_0_0.EmitDuration then
                         v127.Enabled = true;
                         task.delay(l_l_v127_Attributes_0_0.EmitDuration, function() --[[ Line: 430 ]]
+                            -- upvalues: v127 (ref)
                             v127.Enabled = false;
                         end);
                     end;
@@ -413,12 +436,14 @@ v0.PlayAttachment = function(v121, v122, v123) --[[ Line: 388 ]]
             do
                 local l_v139_0 = v139;
                 local function v141() --[[ Line: 462 ]] --[[ Name: Shut_OFF ]]
+                    -- upvalues: v127 (copy), l_v139_0 (ref)
                     game:GetService("TweenService"):Create(v127, TweenInfo.new(l_v139_0, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
                         Width1 = 0, 
                         Width0 = 0
                     }):Play();
                 end;
                 (function() --[[ Line: 466 ]] --[[ Name: Turn_ON ]]
+                    -- upvalues: v127 (copy), l_v139_0 (ref), l_v127_Attributes_1 (copy)
                     game:GetService("TweenService"):Create(v127, TweenInfo.new(l_v139_0, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
                         Width1 = l_v127_Attributes_1.Width1, 
                         Width0 = l_v127_Attributes_1.Width0
@@ -426,6 +451,7 @@ v0.PlayAttachment = function(v121, v122, v123) --[[ Line: 388 ]]
                 end)();
                 if l_Duration_0 then
                     task.delay(l_Duration_0, function() --[[ Line: 474 ]]
+                        -- upvalues: v141 (copy)
                         v141();
                     end);
                 end;
@@ -437,6 +463,7 @@ v0.PlayAttachment = function(v121, v122, v123) --[[ Line: 388 ]]
     end;
 end;
 v0.Yield = function(v142) --[[ Line: 490 ]]
+    -- upvalues: v0 (copy)
     local v143 = v142.Time or 5;
     local l_Char_0 = v142.Char;
     local l_Event_0 = v142.Event;
@@ -455,6 +482,7 @@ v0.Yield = function(v142) --[[ Line: 490 ]]
     end;
 end;
 v0.PlayAttachment = function(v148, v149, v150) --[[ Line: 504 ]]
+    -- upvalues: v0 (copy)
     for _, v152 in pairs(v148:GetDescendants()) do
         if v152:IsA("ParticleEmitter") then
             local l_v152_Attributes_0 = v152:GetAttributes();
@@ -462,6 +490,7 @@ v0.PlayAttachment = function(v148, v149, v150) --[[ Line: 504 ]]
             if l_EmitDelay_1 then
                 local l_l_v152_Attributes_0_0 = l_v152_Attributes_0 --[[ copy: 8 -> 12 ]];
                 task.delay(l_EmitDelay_1, function() --[[ Line: 511 ]]
+                    -- upvalues: v152 (copy), l_l_v152_Attributes_0_0 (copy)
                     v152:Emit(l_l_v152_Attributes_0_0.EmitCount);
                 end);
             else
@@ -470,6 +499,7 @@ v0.PlayAttachment = function(v148, v149, v150) --[[ Line: 504 ]]
             if l_v152_Attributes_0.EmitDuration then
                 v152.Enabled = true;
                 task.delay(l_v152_Attributes_0.EmitDuration, function() --[[ Line: 521 ]]
+                    -- upvalues: v152 (copy)
                     v152.Enabled = false;
                 end);
             end;
@@ -493,12 +523,14 @@ v0.PlayAttachment = function(v148, v149, v150) --[[ Line: 504 ]]
             do
                 local l_v158_0 = v158;
                 local function v160() --[[ Line: 544 ]] --[[ Name: Shut_OFF ]]
+                    -- upvalues: v152 (copy), l_v158_0 (ref)
                     game:GetService("TweenService"):Create(v152, TweenInfo.new(l_v158_0, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
                         Width1 = 0, 
                         Width0 = 0
                     }):Play();
                 end;
                 (function() --[[ Line: 548 ]] --[[ Name: Turn_ON ]]
+                    -- upvalues: v152 (copy), l_v158_0 (ref), l_v152_Attributes_1 (copy)
                     game:GetService("TweenService"):Create(v152, TweenInfo.new(l_v158_0, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {
                         Width1 = l_v152_Attributes_1.Width1, 
                         Width0 = l_v152_Attributes_1.Width0
@@ -506,6 +538,7 @@ v0.PlayAttachment = function(v148, v149, v150) --[[ Line: 504 ]]
                 end)();
                 if l_Duration_1 then
                     task.delay(l_Duration_1, function() --[[ Line: 556 ]]
+                        -- upvalues: v160 (copy)
                         v160();
                     end);
                 end;
@@ -521,7 +554,9 @@ v0.RandomRot = function() --[[ Line: 574 ]]
     return CFrame.Angles(0, math.rad((math.random(-360, 360))), 0);
 end;
 v0.PlayMesh = function(v161) --[[ Line: 578 ]]
+    -- upvalues: v0 (copy)
     task.spawn(function() --[[ Line: 579 ]]
+        -- upvalues: v161 (copy), v0 (ref)
         local l_Model_0 = v161.Model;
         local v163 = v161.Info or TweenInfo.new(1, Enum.EasingStyle.Sine);
         local l_Start_0 = l_Model_0:FindFirstChild("Start");
@@ -563,6 +598,7 @@ v0.PlayMesh = function(v161) --[[ Line: 578 ]]
                     CFrame = l_End_0.CFrame
                 }):Play();
                 task.delay(l_Del_0, function() --[[ Line: 623 ]]
+                    -- upvalues: v177 (ref), l_Start_0 (copy), v163 (copy), v168 (copy), l_Decal_0 (copy), l_Decal_1 (copy), l_SpecialMesh_0 (copy), l_SpecialMesh_1 (copy)
                     v177 = game:GetService("TweenService"):Create(l_Start_0, v163, {
                         Transparency = v168
                     });
@@ -574,6 +610,7 @@ v0.PlayMesh = function(v161) --[[ Line: 578 ]]
                                     Transparency = v168, 
                                     Color = l_Decal_1.Color
                                 }):Play();
+                                print(l_Decal_1.Color);
                             end;
                         end;
                     end;
@@ -616,6 +653,7 @@ v0.PlayMesh = function(v161) --[[ Line: 578 ]]
                     task.wait(l_Del_0 + 0.1);
                 end;
                 v177.Completed:Connect(function() --[[ Line: 667 ]]
+                    -- upvalues: l_Model_0 (copy)
                     l_Model_0:Destroy();
                 end);
             elseif l_Stay_0 then
@@ -629,6 +667,7 @@ v0.PlayMesh = function(v161) --[[ Line: 578 ]]
     end);
 end;
 v0.PlayFlipBook = function(v182) --[[ Line: 679 ]]
+    -- upvalues: v0 (copy)
     local l_Mesh_0 = v182.Mesh;
     local v184 = v182.Delta or 0.02;
     local l_DWC_0 = v182.DWC;
@@ -642,6 +681,7 @@ v0.PlayFlipBook = function(v182) --[[ Line: 679 ]]
     end;
     if l_Folder_0 and l_Decal_2 then
         v0.FastSpawn(function() --[[ Line: 696 ]]
+            -- upvalues: v186 (copy), l_Mesh_0 (copy), l_Folder_0 (copy), v187 (copy), l_Decal_2 (copy), v184 (copy), v0 (ref), l_DWC_0 (ref)
             for _ = 1, v186 do
                 if l_Mesh_0:IsDescendantOf(game.Workspace) then
                     for v192 = 1, #l_Folder_0:GetChildren(), v187 do
