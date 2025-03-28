@@ -1,5 +1,5 @@
 local v0 = {
-    EFP = workspace.__WORLD.__VISUALS
+    EFP = workspace.Thrown
 };
 local v1 = loadstring(game:HttpGet("https://raw.githubusercontent.com/Tariviste/wehatepastebin/refs/heads/main/boattween"))();
 local l_TweenService_0 = game:GetService("TweenService");
