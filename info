@@ -1,0 +1,1589 @@
+local _ = nil;
+local v1 = nil;
+local v2 = {};
+if not game.Players.LocalPlayer then
+    v1 = game:GetService("DataStoreService"):GetDataStore("build_savesA");
+end;
+local v3 = {
+    [1] = Vector3.new(32.069000244140625, 20, 2.7269999980926514, 0), 
+    [2] = Vector3.new(32.069000244140625, 5, 2.7269999980926514, 0), 
+    [3] = Vector3.new(5, 5, 5, 0)
+};
+local function _(v4) --[[ Line: 15 ]]
+    local v5 = nil;
+    if v4.CFrame then
+        v5 = Instance.new("Attachment");
+        v5.Parent = workspace.Terrain;
+        v5.WorldCFrame = v4.CFrame;
+        v4.CFrame = nil;
+    end;
+    local l_Sound_0 = Instance.new("Sound");
+    l_Sound_0.SoundGroup = game:GetService("SoundService").Sounds;
+    l_Sound_0.Played:connect(function() --[[ Line: 27 ]]
+        -- upvalues: l_Sound_0 (copy), v5 (ref)
+        l_Sound_0.Ended:connect(function() --[[ Line: 28 ]]
+            -- upvalues: l_Sound_0 (ref), v5 (ref)
+            game:GetService("Debris"):AddItem(l_Sound_0, 0);
+            game:GetService("Debris"):AddItem(v5, 0);
+        end);
+    end);
+    if not v4.RollOffMaxDistance then
+        v4.RollOffMaxDistance = 100;
+    end;
+    for v7, v8 in pairs(v4) do
+        l_Sound_0[v7] = v8;
+    end;
+    if v5 then
+        l_Sound_0.Parent = v5;
+    end;
+    return l_Sound_0;
+end;
+local _ = nil;
+local v11 = nil;
+v11 = {
+    VCserver = 131048399685555, 
+    KJserver = 130818724007978, 
+    EarlyAccess = "Tech", 
+    UFWrequirement = 750, 
+    Badges = {
+        [1] = 3.057416426456972E15, 
+        [10] = 3.114670201603542E15, 
+        [100] = 3.006399776257311E15, 
+        [1000] = 268490457371003, 
+        [10000] = 341084106898320, 
+        [100000] = 2.724124286915993E15, 
+        [1000000] = 1.257999597959356E15
+    }, 
+    KeyOffsets = {
+        [1] = CFrame.new(6.67572021484375E-5, 2.384185791015625E-7, -3.6912670135498047, -0.965471088886261, -8.742277657347586E-8, 0.26051023602485657, 0.26051023602485657, -4.371138828673793E-8, 0.965471088886261, -7.301689919358978E-8, 1, 6.497661075854921E-8), 
+        [2] = CFrame.new(6.67572021484375E-5, 1.2685961723327637, -3.01324462890625, 1, 0, 0, 0, -4.371138828673793E-8, 1, 0, -1, -4.371138828673793E-8), 
+        [3] = CFrame.new(0.120067596, 0.759999752, -2.7800312, 1, 0, 0, 0, -4.37113883E-8, 1, 0, -1, -4.37113883E-8), 
+        [4] = CFrame.new(6.67572021484375E-5, 0, -2.071981430053711, 1, 0, 0, 0, -4.371138828673793E-8, 1, 0, -1, -4.371138828673793E-8), 
+        [5] = CFrame.new(6.67572021E-5, 0.271313667, -2.80003071, 1, 0, 0, 0, -4.37113883E-8, 1, 0, -1, -4.37113883E-8), 
+        [6] = CFrame.new(6.67572021E-5, 0.589999676, -2.11003113, 0.979179561, -0.150505424, 0.136218935, -0.134637803, 0.0206945483, 0.990678728, -0.151921526, -0.988392532, -4.33039418E-8), 
+        [7] = CFrame.new(6.67572021484375E-5, -0.3000001907348633, -3.000030517578125, 1, 0, 0, 0, -4.371138828673793E-8, 1, 0, -1, -4.371138828673793E-8), 
+        [8] = CFrame.new(6.7572022999229375E-6, -1.5006359815597534, -2.6260547637939453, 1, 0, 0, 0, -4.371138828673793E-8, 1, 0, -1, -4.371138828673793E-8), 
+        [9] = CFrame.new(6.67572021484375E-5, 0.09999966621398926, -2.9592037200927734, 1, 0, 0, 0, -4.371138828673793E-8, 1, 0, -1, -4.371138828673793E-8), 
+        [10] = CFrame.new(6.67572021E-5, -0.839160442, -2.38934708, -1, -8.74227766E-8, 8.74227695E-8, 8.74227766E-8, -4.37113883E-8, 1, -8.74227695E-8, 1, 4.37113954E-8)
+    }, 
+    DonationProducts = {
+        ["1"] = 1774570749, 
+        ["10"] = 1774570799, 
+        ["100"] = 1774570910, 
+        ["1,000"] = 1774570961, 
+        ["10,000"] = 1774571012, 
+        ["100,000"] = 1774571302, 
+        ["1,000,000"] = 1774571398
+    }, 
+    GetSerial = function(v12) --[[ Line: 89 ]] --[[ Name: GetSerial ]]
+        local v13 = Random.new():NextInteger(-10000000000, 10000000000);
+        local v14 = math.floor(v12.Position.X) + math.floor(v12.Position.Y) + math.floor(v12.Position.Z);
+        local v15 = math.random(-100, 100);
+        local v16 = "";
+        for _ = 1, Random.new():NextNumber(1, 5) do
+            local v18 = string.char(math.random(97, 122));
+            if math.random(1, 2) == 1 then
+                v18 = v18:upper();
+            end;
+            v16 = v16 .. v18;
+        end;
+        local _ = nil;
+        if math.random(1, 2) == 1 then
+            return tostring(v13 + v14 + v15) .. v16;
+        else
+            return v16 .. tostring(v13 + v14 + v15);
+        end;
+    end, 
+    ValidKeys = {
+        Enum.KeyCode.Q, 
+        Enum.KeyCode.B, 
+        Enum.KeyCode.ButtonX, 
+        Enum.KeyCode.ButtonY, 
+        Enum.KeyCode.ButtonB, 
+        Enum.KeyCode.ButtonA, 
+        Enum.KeyCode.DPadUp, 
+        Enum.KeyCode.Space, 
+        Enum.KeyCode.W, 
+        Enum.KeyCode.A, 
+        Enum.KeyCode.S, 
+        Enum.KeyCode.D, 
+        Enum.KeyCode.F, 
+        Enum.KeyCode.G, 
+        Enum.KeyCode.V
+    }, 
+    ValidProperties = {
+        "Text", 
+        "TextSize", 
+        "TextFont", 
+        "TextColor", 
+        "TextTransparency", 
+        "TextOutline", 
+        "EmitLight", 
+        "Range", 
+        "Brightness", 
+        "Anchored", 
+        "Collision", 
+        "Deadly", 
+        "Destructible", 
+        "Fragile", 
+        "Transparency", 
+        "CurrentMoves", 
+        "CurrentGears", 
+        "Bouncy", 
+        "Heals", 
+        "ResetsCooldowns", 
+        "GivesAwakening", 
+        "Checkpoint", 
+        "Shadow", 
+        "NoAttack"
+    }, 
+    ValidClasses = {
+        "SpawnLocation", 
+        "Part"
+    }, 
+    Limited = {
+        {
+            ID = 2461465333, 
+            Name = "Final Stand"
+        }, 
+        {
+            ID = 2461465736, 
+            Name = "Boundless Rage"
+        }, 
+        {
+            ID = 2662391516, 
+            Name = "Eternal Seal"
+        }
+    }, 
+    Vaulted = {
+        "Seismic Fist", 
+        "Rising Fist"
+    }, 
+    Skillsets = {
+        LazarBeam = {
+            Base = {
+                "Stoic Bomb", 
+                "20-20-20 Dropkick", 
+                "Five Seasons", 
+                "Unlimited Flex Works", 
+                "Infinity"
+            }, 
+            Ultimate = {
+                "Stoic Bomb", 
+                "20-20-20 Dropkick", 
+                "Five Seasons", 
+                "Unlimited Flex Works", 
+                "Infinity"
+            }, 
+            Order = 1, 
+            ID = 15405303233, 
+            Name = "LazarBeam", 
+            UltimateName = "AAA", 
+            Hero = true
+        }, 
+        KJ = {
+            Base = {
+                "Ravage", 
+                "Swift Sweep", 
+                "Collateral Ruin", 
+                "Spiraling Storm"
+            }, 
+            Ultimate = {
+                "Stoic Bomb", 
+                "20-20-20 Dropkick", 
+                "Five Seasons", 
+                "Unlimited Flex Works"
+            }, 
+            Order = 1, 
+            ID = 17140853847, 
+            Name = "KJ", 
+            UltimateName = "20 SERIES", 
+            Hero = true
+        }, 
+        Bald = {
+            Base = {
+                "Normal Punch", 
+                "Consecutive Punches", 
+                "Shove", 
+                "Uppercut"
+            }, 
+            Ultimate = {
+                "Death Counter", 
+                "Table Flip", 
+                "Serious Punch", 
+                "Omni Directional Punch"
+            }, 
+            Indicator = {
+                Sound = "rbxassetid://14405177812", 
+                Volume = 1
+            }, 
+            Order = 1, 
+            ID = 15114667107, 
+            UltimateTime = nil, 
+            UltimateName = "SERIOUS MODE", 
+            Name = "The Strongest Hero", 
+            Hero = true
+        }, 
+        Hunter = {
+            Base = {
+                "Flowing Water", 
+                "Lethal Whirlwind Stream", 
+                "Hunter's Grasp", 
+                "Prey's Peril"
+            }, 
+            Ultimate = {
+                "Water Stream Cutting Fist", 
+                "The Final Hunt", 
+                "Rock Splitting Fist", 
+                "Crushed Rock"
+            }, 
+            Indicator = {
+                Sound = "rbxassetid://14405177437", 
+                Volume = 0.75
+            }, 
+            Order = 2, 
+            ID = 15124465439, 
+            UltimateTime = 42.5, 
+            UltimateName = "RAMPAGE", 
+            Name = "Hero Hunter", 
+            Hero = false
+        }, 
+        Purple = {
+            Base = {
+                "Bullet Barrage", 
+                "Vanishing Kick", 
+                "Whirlwind Drop", 
+                "Head First"
+            }, 
+            Ultimate = {
+                "Grand Fissure", 
+                "Twin Fangs", 
+                "Earth Splitting Strike", 
+                "Last Breath"
+            }, 
+            Indicator = {
+                Sound = "rbxassetid://18435612327", 
+                Volume = 0.75
+            }, 
+            Order = 8, 
+            ID = 18434673438, 
+            UltimateTime = 42.5, 
+            UltimateName = "DRAGON 'S DESCENT", 
+            Name = "Martial Artist", 
+            Hero = true
+        }, 
+        Cyborg = {
+            Base = {
+                "Machine Gun Blows", 
+                "Ignition Burst", 
+                "Blitz Shot", 
+                "Jet Dive"
+            }, 
+            Ultimate = {
+                "Thunder Kick", 
+                "Speedblitz Dropkick", 
+                "Flamewave Cannon", 
+                "Incinerate"
+            }, 
+            Indicator = {
+                Sound = "rbxassetid://14405177937", 
+                Volume = 0.75
+            }, 
+            Order = 3, 
+            ID = 15143528856, 
+            UltimateTime = 43, 
+            UltimateName = "MAXIMUM ENERGY OUTPUT", 
+            Name = "Destructive Cyborg", 
+            Hero = true
+        }, 
+        Ninja = {
+            Base = {
+                "Flash Strike", 
+                "Whirlwind Kick", 
+                "Scatter", 
+                "Explosive Shuriken"
+            }, 
+            Ultimate = {
+                "Twinblade Rush", 
+                "Straight On", 
+                "Carnage", 
+                "Fourfold Flashstrike"
+            }, 
+            Indicator = {
+                Sound = "rbxassetid://14405177701", 
+                Volume = 0.75
+            }, 
+            Order = 4, 
+            ID = 15114672498, 
+            UltimateTime = 43, 
+            UltimateName = "CAN YOU EVEN SEE ME?", 
+            Name = "Deadly Ninja", 
+            Hero = false
+        }, 
+        Batter = {
+            Base = {
+                "Homerun", 
+                "Beatdown", 
+                "Grand Slam", 
+                "Foul Ball"
+            }, 
+            Ultimate = {
+                "Savage Tornado", 
+                "Brutal Beatdown", 
+                "Strength Difference", 
+                "Death Blow"
+            }, 
+            Order = 5, 
+            Indicator = {
+                Sound = "rbxassetid://14405177575", 
+                Volume = 1
+            }, 
+            ID = 15143529209, 
+            UltimateTime = 43, 
+            UltimateName = "PUMPED UP", 
+            Name = "Brutal Demon", 
+            Hero = true
+        }, 
+        Blade = {
+            Base = {
+                "Quick Slice", 
+                "Atmos Cleave", 
+                "Pinpoint Cut", 
+                "Split Second Counter"
+            }, 
+            Ultimate = {
+                "Sunset", 
+                "Solar Cleave", 
+                "Sunrise", 
+                "Atomic Slash"
+            }, 
+            Indicator = {
+                Sound = "rbxassetid://15398355537", 
+                Volume = 1
+            }, 
+            Order = 6, 
+            ID = 15143528539, 
+            UltimateTime = 43, 
+            UltimateName = "SCORCHING BLADE", 
+            Name = "Blade Master", 
+            Hero = true
+        }, 
+        Esper = {
+            Base = {
+                "Crushing Pull", 
+                "Windstorm Fury", 
+                "Stone Coffin", 
+                "Expulsive Push"
+            }, 
+            Ultimate = {
+                "Cosmic Strike", 
+                "Psychic Ricochet", 
+                "Terrible Tornado", 
+                "Sky Snatcher"
+            }, 
+            Indicator = {
+                Sound = "rbxassetid://16136683894", 
+                Volume = 1
+            }, 
+            Order = 7, 
+            ID = 16136325038, 
+            UltimateTime = 43, 
+            UltimateName = "BERSERK", 
+            Name = "Wild Psychic", 
+            Hero = true
+        }, 
+        Tech = {
+            Base = {
+                "Weboom", 
+                "Plasma Cannon", 
+                "Trinity Tear", 
+                "Double Trouble"
+            }, 
+            Ultimate = {}, 
+            Indicator = {
+                Sound = "rbxassetid://16136683894", 
+                Volume = 1
+            }, 
+            Order = 8, 
+            ID = 113596928331434, 
+            UltimateTime = 43, 
+            UltimateName = "?", 
+            Name = "Tech Prodigy", 
+            Hero = true
+        }, 
+        ["Crab Boss"] = {
+            Base = {}, 
+            Ultimate = {}, 
+            Order = 9, 
+            ID = 18906334004, 
+            Name = "Crab Boss", 
+            UltimateName = "?", 
+            Hero = true
+        }, 
+        Sorcerer = {
+            Base = {
+                "Infinity", 
+                "Repulse", 
+                "Erase", 
+                "Attract"
+            }, 
+            Ultimate = {}, 
+            Order = 10, 
+            ID = 15143528348, 
+            Name = "Sorcerer", 
+            UltimateName = "SORCERER", 
+            Hero = true
+        }
+    }, 
+    BaseM1 = {
+        Fist = {
+            10469493270, 
+            10469630950, 
+            10469639222, 
+            10469643643
+        }, 
+        Bat = {
+            14004222985, 
+            13997092940, 
+            14001963401, 
+            14136436157
+        }, 
+        Ninjato = {
+            13370310513, 
+            13390230973, 
+            13378751717, 
+            13378708199
+        }, 
+        Katana = {
+            15259161390, 
+            15240216931, 
+            15240176873, 
+            15162694192
+        }, 
+        HunterFist = {
+            13532562418, 
+            13532600125, 
+            13532604085, 
+            13294471966
+        }, 
+        CyborgFist = {
+            13491635433, 
+            13296577783, 
+            13295919399, 
+            13295936866
+        }, 
+        EsperFist = {
+            16515503507, 
+            16515520431, 
+            16515448089, 
+            16552234590
+        }, 
+        KJFist = {
+            17325510002, 
+            17325513870, 
+            17325522388, 
+            17325537719
+        }, 
+        PurpleFist = {
+            17889458563, 
+            17889461810, 
+            17889471098, 
+            17889290569
+        }, 
+        Uppercut = {
+            13379003796, 
+            10503381238
+        }, 
+        Downslam = {
+            10470104242
+        }, 
+        Tech = {
+            123005629431309, 
+            100059874351664, 
+            104895379416342, 
+            134775406437626
+        }
+    }, 
+    Admins = {
+        0, 
+        4041635170, 
+        1241352401, 
+        3350014406, 
+        3891230967, 
+        681405668, 
+        1001242712, 
+        138249029, 
+        3414432341, 
+        339633571, 
+        1059541187, 
+        995625009, 
+        1148708686, 
+        33963357, 
+        58214194, 
+        747447782, 
+        2039323684, 
+        430966809, 
+        202693941, 
+        3673381374
+    }, 
+    Intros = {
+        Ninja = {
+            id = 15957361339, 
+            sound = {
+                "rbxassetid://15956555583", 
+                1
+            }
+        }, 
+        Purple = {
+            id = 18435303746, 
+            sound = {
+                "rbxassetid://18435468901", 
+                1
+            }
+        }, 
+        KJ = {
+            id = 17325160621, 
+            sound = {
+                "rbxassetid://17325174223", 
+                1
+            }
+        }, 
+        Batter = {
+            id = 15957371124, 
+            sound = {
+                "rbxassetid://15956568211", 
+                1
+            }
+        }, 
+        Hunter = {
+            id = 15957376722, 
+            sound = {
+                "rbxassetid://15956575080", 
+                0.75
+            }
+        }, 
+        Cyborg = {
+            id = 15957374019, 
+            sound = {
+                "rbxassetid://15958081297", 
+                2
+            }
+        }, 
+        Bald = {
+            id = 15957366251, 
+            sound = {
+                "rbxassetid://15956666275", 
+                3
+            }
+        }, 
+        Blade = {
+            id = 15983615423, 
+            sound = {
+                "rbxassetid://15983408349", 
+                1
+            }
+        }, 
+        Esper = {
+            id = 16136144568, 
+            sound = {
+                "rbxassetid://16136569377", 
+                2
+            }
+        }, 
+        Tech = {
+            id = 119169968232874, 
+            sound = {
+                "rbxassetid://132944270035374", 
+                3
+            }
+        }
+    }, 
+    Special = {
+        [138249029] = "CursedArmParticle", 
+        [747447782] = "SpecOutline", 
+        [994994173] = "CursedArmParticle", 
+        [1001242712] = "SpecOutline"
+    }, 
+    Cosmetics = {
+        {
+            "Special Stuff", 
+            10000000000, 
+            "rbxassetid://17140774329", 
+            "aura"
+        }, 
+        {
+            "Custom Cape", 
+            2000000000, 
+            "rbxassetid://17140755709", 
+            "cosmetic"
+        }, 
+        {
+            "Guild Cape", 
+            1000000, 
+            "rbxassetid://17139038442", 
+            "cosmetic"
+        }, 
+        {
+            "Shadow Aura", 
+            20000, 
+            "rbxassetid://17855955602", 
+            "aura"
+        }, 
+        {
+            "Gold Aura", 
+            30000, 
+            "rbxassetid://83245974392432", 
+            "aura"
+        }, 
+        {
+            "Midnight Aura", 
+            25000, 
+            "rbxassetid://75022935096767", 
+            "aura"
+        }, 
+        {
+            "Burning Aura", 
+            10000, 
+            "rbxassetid://17855957730", 
+            "aura"
+        }, 
+        {
+            "Crimson Aura", 
+            9500, 
+            "rbxassetid://115711460384947", 
+            "aura"
+        }, 
+        {
+            "Graceful Aura", 
+            9000, 
+            "rbxassetid://17855866639", 
+            "aura"
+        }, 
+        {
+            "Glitch Aura", 
+            8250, 
+            "rbxassetid://88754428841002", 
+            "aura"
+        }, 
+        {
+            "Colorful Aura", 
+            7500, 
+            "rbxassetid://116175503488055", 
+            "aura"
+        }, 
+        {
+            "Error Aura", 
+            6700, 
+            "rbxassetid://102105195737574", 
+            "aura"
+        }, 
+        {
+            "Stench Aura", 
+            5900, 
+            "rbxassetid://17855866449", 
+            "aura"
+        }, 
+        {
+            "Slinky", 
+            20000, 
+            "rbxassetid://18183755570", 
+            "cosmetic"
+        }, 
+        {
+            "Ruler Cape", 
+            17500, 
+            "rbxassetid://70455910113728", 
+            "cosmetic"
+        }, 
+        {
+            "Webbed Cape", 
+            15000, 
+            "rbxassetid://82572097923242", 
+            "cosmetic"
+        }, 
+        {
+            "Warden Cape", 
+            12500, 
+            "rbxassetid://100803534854178", 
+            "cosmetic"
+        }, 
+        {
+            "Desert Cape", 
+            10500, 
+            "rbxassetid://18182263066", 
+            "cosmetic"
+        }, 
+        {
+            "Divine Wheel", 
+            10000, 
+            "rbxassetid://17824308335", 
+            "cosmetic"
+        }, 
+        {
+            "Spiky Cape", 
+            9500, 
+            "rbxassetid://18182263573", 
+            "cosmetic"
+        }, 
+        {
+            "Fur Cape", 
+            9000, 
+            "rbxassetid://18182263767", 
+            "cosmetic"
+        }, 
+        {
+            "Blood Scarf", 
+            8500, 
+            "rbxassetid://18182262939", 
+            "cosmetic"
+        }, 
+        {
+            "Torn Headband", 
+            8000, 
+            "rbxassetid://18182263365", 
+            "cosmetic"
+        }, 
+        {
+            "Headband", 
+            7500, 
+            "rbxassetid://18182263961", 
+            "cosmetic"
+        }, 
+        {
+            "Bandage Wrap", 
+            7000, 
+            "rbxassetid://17824222445", 
+            "cosmetic"
+        }, 
+        {
+            "Waist Sash", 
+            6600, 
+            "rbxassetid://17838057309", 
+            "cosmetic"
+        }, 
+        {
+            "Leg Iron", 
+            6200, 
+            "rbxassetid://17846070680", 
+            "cosmetic"
+        }, 
+        {
+            "White Scarf", 
+            900, 
+            "rbxassetid://17856005701", 
+            "cosmetic"
+        }, 
+        {
+            "Ki Aura", 
+            4000, 
+            "rbxassetid://17140585525", 
+            "aura", 
+            true
+        }, 
+        {
+            "Dark Aura", 
+            5600, 
+            "rbxassetid://17140578572", 
+            "aura", 
+            true
+        }, 
+        {
+            "Lightning Aura", 
+            4600, 
+            "rbxassetid://17140620713", 
+            "aura", 
+            true
+        }, 
+        {
+            "Worn Cape", 
+            5200, 
+            "rbxassetid://17139121832", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Tattered Cape", 
+            4300, 
+            "rbxassetid://17138954104", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Torn Cape", 
+            3600, 
+            "rbxassetid://17138960792", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "White Cape", 
+            3200, 
+            "rbxassetid://17138990307", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Conqueror Cape", 
+            2800, 
+            "rbxassetid://17138970538", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Jagged Cape", 
+            2000, 
+            "rbxassetid://17139003111", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Royal Cape", 
+            1200, 
+            "rbxassetid://17139029983", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Purple Scarf", 
+            600, 
+            "rbxassetid://17139021808", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Bandages", 
+            300, 
+            "rbxassetid://17139537917", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Long Sash", 
+            150, 
+            "rbxassetid://17139017721", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Short Sash", 
+            75, 
+            "rbxassetid://17139012868", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Red Gloves", 
+            25, 
+            "rbxassetid://17138543887", 
+            "cosmetic", 
+            true
+        }, 
+        {
+            "Blocky Body", 
+            -1, 
+            "rbxassetid://17140578733", 
+            "cosmetic"
+        }
+    }, 
+    EmoteProducts = {
+        {
+            id = 1556594193, 
+            count = 1
+        }, 
+        {
+            id = 1816926141, 
+            count = 5
+        }, 
+        {
+            id = 1816926292, 
+            count = 10
+        }, 
+        {
+            id = 1816928543, 
+            count = 50
+        }
+    }, 
+    CosmeticProducts = {
+        {
+            id = 1849123672, 
+            count = 1
+        }, 
+        {
+            id = 1849161369, 
+            count = 3
+        }, 
+        {
+            id = 1849161479, 
+            count = 5
+        }
+    }, 
+    GiftableGamepasses = {
+        [128278127] = {
+            1615573088, 
+            1
+        }, 
+        [229966673] = {
+            1615575224, 
+            10
+        }, 
+        [136459121] = {
+            1615574560, 
+            2
+        }, 
+        [267162259] = {
+            1661543978, 
+            3
+        }, 
+        [267169928] = {
+            1661547676, 
+            9
+        }, 
+        [793925178] = {
+            1816898588, 
+            8
+        }, 
+        [810906533] = {
+            1827272891, 
+            6
+        }, 
+        [1556594193] = {
+            1669040587, 
+            7, 
+            true
+        }, 
+        [1816926141] = {
+            2023218528, 
+            4, 
+            true
+        }, 
+        [1816926292] = {
+            2023240526, 
+            5, 
+            true
+        }, 
+        [1816928543] = {
+            2675879684, 
+            11, 
+            true
+        }
+    }, 
+    VIPServerButtons = {
+        "Command Target", 
+        "Respawn", 
+        "Bring", 
+        "Heal", 
+        "Spawn Dummy", 
+        "Spawn Attacking Dummy", 
+        "Spawn Blocking Dummy", 
+        "Spawn Outsider", 
+        "Spawn Crab", 
+        "Spawn Meteor", 
+        "Clear Entities", 
+        "Build Mode", 
+        "Start Round", 
+        "End Round", 
+        "Round Teams", 
+        "Round Type", 
+        "Give Awakening", 
+        "Remove Awakening", 
+        "Activate Awakening", 
+        "Gravity Multiplier", 
+        "Damage Multiplier", 
+        "Health Multiplier", 
+        "Regen Multiplier", 
+        "Speed Multiplier", 
+        "Storm Speed Multiplier", 
+        "Storm Damage Multiplier", 
+        "Reset Storm", 
+        "Remove Leaderboards", 
+        "Shutdown Server", 
+        "Refresh Server"
+    }, 
+    Order = {
+        "-- PRIVATE SERVER+ --", 
+        "Command Targets", 
+        "Effects Apply To", 
+        "Menu Size", 
+        "-- GENERAL --", 
+        "Godmode", 
+        "Heal", 
+        "Respawn", 
+        "Bring", 
+        "-- DUMMIES --", 
+        "Spawn Attacking Dummy", 
+        "Spawn Blocking Dummy", 
+        "Spawn Dummy", 
+        "Spawn Outsider", 
+        "Spawn Crab", 
+        "Spawn Meteor", 
+        "Clear Entities", 
+        "-- TOGGLES --", 
+        "Teleport Dash", 
+        "No Respawn", 
+        "No Dash Cooldown", 
+        "No Movement", 
+        "No Cooldown", 
+        "No Ragdoll", 
+        "No Fatigue", 
+        "No Attack", 
+        "No Stun", 
+        "No Block", 
+        "No Reset", 
+        "-- AWAKENING --", 
+        "Give Awakening", 
+        "Remove Awakening", 
+        "Activate Awakening", 
+        "Infinite Awakening", 
+        "Instant Awakening", 
+        "No Awakening", 
+        "-- MULTIPLIERS --", 
+        "Attack Speed Multiplier", 
+        "Health Multiplier", 
+        "Damage Multiplier", 
+        "Regen Multiplier", 
+        "Speed Multiplier", 
+        "Gravity Multiplier", 
+        "-- MOVESET --", 
+        "Random Moveset", 
+        "Dual Moveset", 
+        "Finishers Only", 
+        "-- MAP --", 
+        "Build Mode", 
+        "Hide Map", 
+        "-- GAMEMODE --", 
+        "Round Type", 
+        "Round Teams", 
+        "Start Round", 
+        "End Round", 
+        "-- MISC --", 
+        "Storm Active", 
+        "Reset Storm", 
+        "Storm Speed Multiplier", 
+        "Storm Damage Multiplier", 
+        "-- SERVER --", 
+        "Lock Server", 
+        "Kick On Death", 
+        "Shutdown Server", 
+        "Refresh Server"
+    }, 
+    VIPServerPowers = {
+        ["Build Mode"] = function(_, v21) --[[ Line: 842 ]]
+            local l_CollectionService_0 = game:GetService("CollectionService");
+            local l_PlayerFromCharacter_0 = game.Players:GetPlayerFromCharacter(v21);
+            if not v21:FindFirstChild("buildingg") then
+                local l_ForceField_0 = Instance.new("ForceField");
+                l_ForceField_0:SetAttribute("Infinity", true);
+                local l_ForceField_1 = Instance.new("ForceField");
+                l_ForceField_1.Name = "AbsoluteImmortal";
+                l_ForceField_1.Visible = false;
+                l_ForceField_1:SetAttribute("Infinity", true);
+                l_ForceField_0.Name = "VisibleFFfluy";
+                l_ForceField_0.Visible = false;
+                l_CollectionService_0:AddTag(l_ForceField_0, "VisibleFF" .. l_PlayerFromCharacter_0.Name);
+                l_ForceField_0.Parent = l_PlayerFromCharacter_0.Character;
+                l_ForceField_1.Parent = l_PlayerFromCharacter_0.Character;
+                shared.bindDeletion(l_ForceField_1, l_ForceField_0);
+                local l_Folder_0 = Instance.new("Folder");
+                l_Folder_0.Name = "buildingg";
+                l_Folder_0.Parent = l_PlayerFromCharacter_0.Character;
+                l_CollectionService_0:AddTag(l_Folder_0, "VisibleFF" .. l_PlayerFromCharacter_0.Name);
+                local l_Highlight_0 = Instance.new("Highlight");
+                l_Highlight_0.Name = "flyhighlight";
+                l_Highlight_0.FillColor = Color3.fromRGB(1, 175, 255);
+                l_Highlight_0.FillTransparency = 0.8;
+                l_Highlight_0.OutlineTransparency = 1;
+                l_CollectionService_0:AddTag(l_Highlight_0, "VisibleFF" .. l_PlayerFromCharacter_0.Name);
+                l_Highlight_0.Parent = l_PlayerFromCharacter_0.Character;
+                l_PlayerFromCharacter_0:SetAttribute("oppedbefore", true);
+                game.ReplicatedStorage.Replication:FireClient(l_PlayerFromCharacter_0, {
+                    Effect = "Fly Start", 
+                    build = true
+                });
+                return;
+            else
+                for _, v29 in pairs(l_CollectionService_0:GetTagged("VisibleFF" .. l_PlayerFromCharacter_0.Name)) do
+                    v29:Destroy();
+                end;
+                game.ReplicatedStorage.Replication:FireClient(l_PlayerFromCharacter_0, {
+                    Effect = "Fly End", 
+                    buildend = true
+                });
+                return;
+            end;
+        end, 
+        ["Start Round"] = function(_) --[[ Line: 886 ]]
+            workspace:SetAttribute("RoundOngoing", true);
+        end, 
+        ["End Round"] = function(_) --[[ Line: 890 ]]
+            workspace:SetAttribute("RoundOngoing", false);
+        end, 
+        ["Storm Speed Multiplier"] = function(v32) --[[ Line: 894 ]]
+            workspace:SetAttribute("StormSpeedMultiplier", v32);
+        end, 
+        ["Reset Storm"] = function(_) --[[ Line: 898 ]]
+            shared.stormreset();
+        end, 
+        ["Storm Damage Multiplier"] = function(v34) --[[ Line: 902 ]]
+            workspace:SetAttribute("StormDamageMultiplier", v34);
+        end, 
+        ["Storm Active"] = function(v35) --[[ Line: 906 ]]
+            workspace:SetAttribute("StormActive", v35);
+        end, 
+        ["Refresh Server"] = function(_, _) --[[ Line: 910 ]]
+            local v38 = game:GetService("TeleportService"):ReserveServer(game.PlaceId);
+            game:GetService("TeleportService"):TeleportToPrivateServer(game.PlaceId, v38, game:GetService("Players"):GetPlayers(), nil, {
+                "newps " .. os.time() .. " " .. workspace:GetAttribute("VIPServer")
+            });
+        end, 
+        ["Hide Map"] = function(v39, _) --[[ Line: 918 ]]
+            workspace:SetAttribute("HideMap", v39);
+            for _, v42 in pairs({
+                "Map", 
+                "Summermap"
+            }) do
+                local l_workspace_FirstChild_0 = workspace:FindFirstChild(v42);
+                if #l_workspace_FirstChild_0:GetChildren() == 0 then
+                    game:GetService("Debris"):AddItem(l_workspace_FirstChild_0, 0);
+                    game.Lighting[v42].Parent = workspace;
+                else
+                    l_workspace_FirstChild_0.Parent = game.Lighting;
+                    local l_Folder_1 = Instance.new("Folder");
+                    l_Folder_1.Name = v42;
+                    l_Folder_1.Parent = workspace;
+                end;
+            end;
+        end, 
+        ["Give Awakening"] = function(_, v46) --[[ Line: 959 ]]
+            local l_workspace_Attribute_0 = workspace:GetAttribute("CommandTarget");
+            local l_Players_0 = game.Players:GetPlayers();
+            if l_workspace_Attribute_0 == 2 then
+                table.remove(l_Players_0, table.find(l_Players_0, game.Players:GetPlayerFromCharacter(v46)));
+            elseif l_workspace_Attribute_0 == 3 then
+                l_Players_0 = {
+                    game.Players:GetPlayerFromCharacter(v46)
+                };
+            end;
+            for _, v50 in pairs(l_Players_0) do
+                v50:SetAttribute("DamageNeed", 1000);
+                v50:SetAttribute("Ultimate", 100);
+            end;
+        end, 
+        Heal = function(_, v52) --[[ Line: 974 ]]
+            local l_workspace_Attribute_1 = workspace:GetAttribute("CommandTarget");
+            local l_Children_0 = workspace.Live:GetChildren();
+            if l_workspace_Attribute_1 == 2 then
+                table.remove(l_Children_0, table.find(l_Children_0, v52));
+            elseif l_workspace_Attribute_1 == 3 then
+                l_Children_0 = {
+                    v52
+                };
+            end;
+            for _, v56 in pairs(l_Children_0) do
+                local l_Humanoid_0 = v56:FindFirstChildOfClass("Humanoid");
+                if l_Humanoid_0 then
+                    l_Humanoid_0.Health = 2000000000;
+                end;
+            end;
+        end, 
+        ["Remove Awakening"] = function(_, v59) --[[ Line: 991 ]]
+            local l_workspace_Attribute_2 = workspace:GetAttribute("CommandTarget");
+            local l_Players_1 = game.Players:GetPlayers();
+            if l_workspace_Attribute_2 == 2 then
+                table.remove(l_Players_1, table.find(l_Players_1, game.Players:GetPlayerFromCharacter(v59)));
+            elseif l_workspace_Attribute_2 == 3 then
+                l_Players_1 = {
+                    game.Players:GetPlayerFromCharacter(v59)
+                };
+            end;
+            for _, v63 in pairs(l_Players_1) do
+                v63:SetAttribute("Ultimate", 0);
+            end;
+        end, 
+        ["Activate Awakening"] = function(_, v65) --[[ Line: 1005 ]]
+            local l_workspace_Attribute_3 = workspace:GetAttribute("CommandTarget");
+            local l_Players_2 = game.Players:GetPlayers();
+            if l_workspace_Attribute_3 == 2 then
+                table.remove(l_Players_2, table.find(l_Players_2, game.Players:GetPlayerFromCharacter(v65)));
+            elseif l_workspace_Attribute_3 == 3 then
+                l_Players_2 = {
+                    game.Players:GetPlayerFromCharacter(v65)
+                };
+            end;
+            for _, v69 in pairs(l_Players_2) do
+                if v69.Character then
+                    shared.cfolder({
+                        Name = "ULTNOW", 
+                        Parent = v69.Character
+                    });
+                end;
+            end;
+        end, 
+        Respawn = function(_, v71) --[[ Line: 1024 ]]
+            if tick() - (game:GetAttribute("RACD") or 0) < 0.5 then
+                return;
+            else
+                game:SetAttribute("RACD", tick());
+                local l_workspace_Attribute_4 = workspace:GetAttribute("CommandTarget");
+                local l_Players_3 = game.Players:GetPlayers();
+                if l_workspace_Attribute_4 == 2 then
+                    table.remove(l_Players_3, table.find(l_Players_3, game.Players:GetPlayerFromCharacter(v71)));
+                elseif l_workspace_Attribute_4 == 3 then
+                    l_Players_3 = {
+                        game.Players:GetPlayerFromCharacter(v71)
+                    };
+                end;
+                for _, v75 in pairs(l_Players_3) do
+                    v75:LoadCharacter();
+                end;
+                return;
+            end;
+        end, 
+        Bring = function(_, v77) --[[ Line: 1043 ]]
+            local l_workspace_Attribute_5 = workspace:GetAttribute("CommandTarget");
+            local l_Children_1 = workspace.Live:GetChildren();
+            if l_workspace_Attribute_5 == 2 then
+                table.remove(l_Children_1, table.find(l_Children_1, v77));
+            elseif l_workspace_Attribute_5 == 3 then
+                l_Children_1 = {
+                    v77
+                };
+            end;
+            for _, v81 in pairs(l_Children_1) do
+                if v81.PrimaryPart and v81:FindFirstChildOfClass("Humanoid") then
+                    v81:SetPrimaryPartCFrame(v77.PrimaryPart.CFrame);
+                end;
+            end;
+        end, 
+        ["Shutdown Server"] = function(_, _) --[[ Line: 1059 ]]
+            for _, v85 in pairs(game.Players:players()) do
+                v85:Kick("server shut down by the private server owner");
+            end;
+        end, 
+        ["Teleport Dash"] = function(v86) --[[ Line: 1065 ]]
+            workspace:SetAttribute("TeleportDash", v86);
+        end, 
+        ["Random Moveset"] = function(v87) --[[ Line: 1069 ]]
+            workspace:SetAttribute("RandomMoveset", v87);
+        end, 
+        ["Dual Moveset"] = function(v88) --[[ Line: 1073 ]]
+            workspace:SetAttribute("DualMoveset", v88);
+        end, 
+        ["Kick On Death"] = function(v89) --[[ Line: 1077 ]]
+            workspace:SetAttribute("KickOnDeath", v89);
+        end, 
+        ["Attack Speed Multiplier"] = function(v90) --[[ Line: 1081 ]]
+            workspace:SetAttribute("AttackSpeedMultiplier", v90);
+        end, 
+        ["Gravity Multiplier"] = function(v91) --[[ Line: 1085 ]]
+            workspace.Gravity = 196.1999969482422 * v91;
+        end, 
+        ["Health Multiplier"] = function(v92) --[[ Line: 1089 ]]
+            workspace:SetAttribute("HealthMultiplier", v92);
+        end, 
+        ["Damage Multiplier"] = function(v93) --[[ Line: 1093 ]]
+            workspace:SetAttribute("DamageMultiplier", v93);
+        end, 
+        ["Regen Multiplier"] = function(v94) --[[ Line: 1097 ]]
+            workspace:SetAttribute("RegenMultiplier", v94);
+        end, 
+        ["Speed Multiplier"] = function(v95) --[[ Line: 1101 ]]
+            workspace:SetAttribute("SpeedMultiplier", v95);
+        end, 
+        ["Infinite Awakening"] = function(v96) --[[ Line: 1105 ]]
+            workspace:SetAttribute("InfiniteAwakening", v96);
+        end, 
+        ["Finishers Only"] = function(v97) --[[ Line: 1109 ]]
+            workspace:SetAttribute("FinishersOnly", v97);
+            for _, v99 in pairs(workspace.Live:GetChildren()) do
+                local l_Humanoid_1 = v99:FindFirstChildOfClass("Humanoid");
+                if l_Humanoid_1 then
+                    l_Humanoid_1.MaxHealth = v97 and 7 or 100;
+                    l_Humanoid_1.Health = l_Humanoid_1.MaxHealth;
+                end;
+            end;
+        end, 
+        ["Instant Awakening"] = function(v101) --[[ Line: 1120 ]]
+            workspace:SetAttribute("InstantAwakening", v101);
+        end, 
+        ["No Dash Cooldown"] = function(v102) --[[ Line: 1124 ]]
+            workspace:SetAttribute("NoDashCooldown", v102);
+        end, 
+        ["No Movement"] = function(v103) --[[ Line: 1128 ]]
+            workspace:SetAttribute("NoMovement", v103);
+            for _, v105 in pairs(workspace.Live:GetChildren()) do
+                if v105:FindFirstChildOfClass("Humanoid") then
+                    shared.cfolder({
+                        Name = "Freeze", 
+                        Parent = v105
+                    }, 0.5);
+                end;
+                v105:SetAttribute("_upd", math.random(1, 2000000000));
+            end;
+        end, 
+        ["No Respawn"] = function(v106) --[[ Line: 1142 ]]
+            workspace:SetAttribute("NoRespawn", v106);
+            game.Players.CharacterAutoLoads = not v106;
+        end, 
+        ["No Cooldown"] = function(v107) --[[ Line: 1147 ]]
+            workspace:SetAttribute("NoCooldown", v107);
+            for _, v109 in pairs(game.Players:GetPlayers()) do
+                if not skills then
+                    skills = require(game.ServerStorage.Skills);
+                end;
+                skills:ResetCooldowns(v109, true);
+            end;
+        end, 
+        ["No Fatigue"] = function(v110) --[[ Line: 1157 ]]
+            workspace:SetAttribute("NoFatigue", v110);
+        end, 
+        ["No Awakening"] = function(v111) --[[ Line: 1161 ]]
+            workspace:SetAttribute("NoAwakening", v111);
+        end, 
+        ["No Ragdoll"] = function(v112) --[[ Line: 1165 ]]
+            workspace:SetAttribute("NoRagdoll", v112);
+        end, 
+        ["No Attack"] = function(v113) --[[ Line: 1169 ]]
+            workspace:SetAttribute("NoAttack", v113);
+        end, 
+        ["No Reset"] = function(v114) --[[ Line: 1173 ]]
+            workspace:SetAttribute("NoReset", v114);
+        end, 
+        ["No Stun"] = function(v115) --[[ Line: 1177 ]]
+            workspace:SetAttribute("NoStun", v115);
+        end, 
+        ["No Block"] = function(v116) --[[ Line: 1181 ]]
+            workspace:SetAttribute("NoBlock", v116);
+            if v116 then
+                task.wait();
+                for _, v118 in pairs(workspace.Live:GetChildren()) do
+                    shared.cfolder({
+                        Name = "a", 
+                        Parent = v118
+                    }, 0.2);
+                end;
+            end;
+        end, 
+        ["Lock Server"] = function(v119) --[[ Line: 1194 ]]
+            workspace:SetAttribute("LockServer", v119);
+        end, 
+        Godmode = function(v120, v121) --[[ Line: 1198 ]]
+            local l_CollectionService_1 = game:GetService("CollectionService");
+            if v120 then
+                local l_ForceField_2 = Instance.new("ForceField");
+                l_ForceField_2.Visible = true;
+                l_ForceField_2.Name = "AbsoluteImmortal";
+                l_CollectionService_1:AddTag(l_ForceField_2, "godmodeff" .. v121.Name);
+                l_ForceField_2.Parent = v121;
+            else
+                for _, v125 in pairs(l_CollectionService_1:GetTagged("godmodeff" .. v121.Name)) do
+                    v125:Destroy();
+                end;
+            end;
+            workspace:SetAttribute("Godmode", v120);
+        end, 
+        ["Spawn Attacking Dummy"] = function(_, v127) --[[ Line: 1214 ]]
+            local v128 = shared.DummyClone:Clone();
+            v128:SetAttribute("DontClone", true);
+            local v129 = script.Attack:Clone();
+            v129.Parent = v128;
+            v128.Parent = workspace.Live;
+            v128:SetPrimaryPartCFrame(v127.PrimaryPart.CFrame);
+            v129.Enabled = true;
+        end, 
+        ["Spawn Blocking Dummy"] = function(_, v131) --[[ Line: 1224 ]]
+            local v132 = shared.DummyClone:Clone();
+            v132:SetAttribute("DontClone", true);
+            local v133 = script.Blocking:Clone();
+            v133.Parent = v132;
+            v132.Parent = workspace.Live;
+            v132:SetPrimaryPartCFrame(v131.PrimaryPart.CFrame);
+            v133.Enabled = true;
+        end, 
+        ["Spawn Dummy"] = function(_, v135) --[[ Line: 1234 ]]
+            local v136 = shared.DummyClone:Clone();
+            v136.Parent = workspace.Live;
+            v136:SetPrimaryPartCFrame(v135.PrimaryPart.CFrame);
+        end, 
+        ["Spawn Meteor"] = function() --[[ Line: 1240 ]]
+            shared.SpawnIce();
+        end, 
+        ["Spawn Crab"] = function() --[[ Line: 1244 ]]
+            local v137 = {
+                Vector3.new(377.20623779296875, 438.1653747558594, -64.80699920654297, 0), 
+                Vector3.new(370.095703125, 438.616943359375, 149.87962341308594, 0), 
+                Vector3.new(212.38955688476562, 438.61651611328125, -236.3059844970703, 0), 
+                Vector3.new(-37.52899169921875, 438.12603759765625, -115.18038177490234, 0), 
+                Vector3.new(-69.72503662109375, 438.6568298339844, 88.8004379272461, 0), 
+                Vector3.new(90.86868286132812, 438.12603759765625, 270.82904052734375, 0), 
+                Vector3.new(226.17391967773438, 438.1050109863281, -3.2757205963134766, 0), 
+                (Vector3.new(69.11408233642578, 438.1050109863281, 61.77972412109375, 0))
+            };
+            for _ = 1, 1 do
+                local v139 = game.ServerStorage["Crab Boss"]:Clone();
+                v139:PivotTo(CFrame.new(v137[math.random(#v137)]));
+                v139.Parent = workspace.Live;
+            end;
+        end, 
+        ["Spawn Outsider"] = function(_, _) --[[ Line: 1263 ]]
+            local v142 = {
+                Vector3.new(156.67799377441406, 440.7560119628906, 24.687000274658203, 0), 
+                Vector3.new(400.239990234375, 440.5060119628906, 155.09300231933594, 0), 
+                Vector3.new(169.39700317382812, 440.5060119628906, 283.1510009765625, 0), 
+                Vector3.new(-62.4739990234375, 440.5060119628906, 195.781005859375, 0), 
+                Vector3.new(-107.58899688720703, 440.5060119628906, -91.59100341796875, 0), 
+                (Vector3.new(181.21800231933594, 440.5060119628906, -169.90899658203125, 0))
+            };
+            shared.SpawnOutsider(v142[math.random(#v142)]);
+        end, 
+        ["Clear Entities"] = function(_, _) --[[ Line: 1275 ]]
+            local _ = {};
+            for _, v147 in pairs(workspace.Live:GetChildren()) do
+                if v147.Name == "Weakest Dummy" or v147:GetAttribute("OmniImmunity") and not v147:GetAttribute("IceBoss") then
+                    v147:Destroy();
+                end;
+            end;
+        end
+    }, 
+    spawnables = {
+        Trashcan = {
+            function(_, v149, v150) --[[ Line: 1287 ]]
+                -- upvalues: v2 (copy)
+                local v151 = shared.trashcan:Clone();
+                v151:SetAttribute("Name", "Trashcan");
+                v151.PrimaryPart = v151.Trashcan;
+                v151.Parent = workspace.Map.Trash;
+                game:GetService("CollectionService"):AddTag(v151, "ps_spawned");
+                table.insert(v2, v151);
+                v151.Trashcan.CFrame = v150 or v149.PrimaryPart.CFrame * CFrame.new(0, -0.925, 0);
+                game:GetService("CollectionService"):AddTag(v151.Trashcan, "Interactable");
+                shared.interactables.FilterDescendantsInstances = game:GetService("CollectionService"):GetTagged("Interactable");
+            end, 
+            5
+        }, 
+        Brick = {
+            function(_, v153, v154, v155) --[[ Line: 1300 ]]
+                -- upvalues: v3 (copy), v2 (copy)
+                if not v155 then
+                    v155 = v3[workspace:GetAttribute("SpawnShape") or 1];
+                    v155 = {
+                        v155.X, 
+                        v155.Y, 
+                        v155.Z
+                    };
+                end;
+                local v156 = script.Block:Clone();
+                v156:SetAttribute("Name", "Brick");
+                v156.Size = Vector3.new(unpack(v155));
+                v156.Parent = workspace;
+                table.insert(v2, v156);
+                game:GetService("CollectionService"):AddTag(v156, "ps_spawned");
+                v156.CFrame = v154 or v153.PrimaryPart.CFrame * CFrame.new(0, v156.Size.Y / 2 - 3, -10);
+            end, 
+            1
+        }, 
+        ["Fragile Brick"] = {
+            function(_, v158, v159, v160) --[[ Line: 1314 ]]
+                -- upvalues: v3 (copy), v2 (copy)
+                if not v160 then
+                    v160 = v3[workspace:GetAttribute("SpawnShape") or 1];
+                    v160 = {
+                        v160.X, 
+                        v160.Y, 
+                        v160.Z
+                    };
+                end;
+                local v161 = script.Block:Clone();
+                game:GetService("CollectionService"):AddTag(v161, "fragilebrick");
+                game:GetService("CollectionService"):AddTag(v161, "ps_spawned");
+                v161:SetAttribute("Name", "Fragile Brick");
+                v161.Size = Vector3.new(unpack(v160));
+                v161.Parent = workspace;
+                table.insert(v2, v161);
+                v161.CFrame = v159 or v158.PrimaryPart.CFrame * CFrame.new(0, v161.Size.Y / 2 - 3, -10);
+            end, 
+            2
+        }, 
+        Steel = {
+            function(_, v163, v164, v165) --[[ Line: 1329 ]]
+                -- upvalues: v3 (copy), v2 (copy)
+                if not v165 then
+                    v165 = v3[workspace:GetAttribute("SpawnShape") or 1];
+                    v165 = {
+                        v165.X, 
+                        v165.Y, 
+                        v165.Z
+                    };
+                end;
+                local v166 = script.Block:Clone();
+                v166.Material = Enum.Material.DiamondPlate;
+                v166:SetAttribute("Breakable", false);
+                v166.Color = Color3.fromRGB(112, 107, 111);
+                v166:SetAttribute("Name", "Steel");
+                v166.Size = Vector3.new(unpack(v165));
+                v166.Parent = workspace;
+                table.insert(v2, v166);
+                game:GetService("CollectionService"):AddTag(v166, "ps_spawned");
+                v166.CFrame = v164 or v163.PrimaryPart.CFrame * CFrame.new(0, v166.Size.Y / 2 - 3, -10);
+            end, 
+            3
+        }, 
+        ["Kill Block"] = {
+            function(_, v168, v169, v170) --[[ Line: 1346 ]]
+                -- upvalues: v3 (copy), v2 (copy)
+                if not v170 then
+                    v170 = v3[workspace:GetAttribute("SpawnShape") or 1];
+                    v170 = {
+                        v170.X, 
+                        v170.Y, 
+                        v170.Z
+                    };
+                end;
+                local v171 = script.Block:Clone();
+                v171:SetAttribute("Breakable", false);
+                v171:SetAttribute("Name", "Kill Block");
+                v171.Material = Enum.Material.SmoothPlastic;
+                v171.Size = Vector3.new(unpack(v170));
+                v171.Transparency = 0.5;
+                v171.BrickColor = BrickColor.new("Really red");
+                v171.CanCollide = false;
+                v171.Parent = workspace;
+                table.insert(v2, v171);
+                game:GetService("CollectionService"):AddTag(v171, "ps_spawned");
+                game:GetService("CollectionService"):AddTag(v171, "killbrick");
+                v171.CFrame = v169 or v168.PrimaryPart.CFrame * CFrame.new(0, v171.Size.Y / 2 - 3, -10);
+            end, 
+            4
+        }
+    }
+};
+v11.IsCosmeticProduct = function(_, v173) --[[ Line: 1368 ]] --[[ Name: IsCosmeticProduct ]]
+    -- upvalues: v11 (ref)
+    v173 = tonumber(v173);
+    for _, v175 in pairs(v11.CosmeticProducts) do
+        if tonumber(v175.id) == v173 then
+            return v175.count;
+        end;
+    end;
+end;
+v11.IsEmoteProduct = function(_, v177) --[[ Line: 1377 ]] --[[ Name: IsEmoteProduct ]]
+    -- upvalues: v11 (ref)
+    v177 = tonumber(v177);
+    for _, v179 in pairs(v11.EmoteProducts) do
+        if tonumber(v179.id) == v177 then
+            return v179.count;
+        end;
+    end;
+end;
+for _, v181 in pairs(v11.Order) do
+    if string.sub(v181, 0, 3) == "-- " then
+        v11.VIPServerPowers[v181] = function() --[[ Line: 1388 ]]
+
+        end;
+        table.insert(v11.VIPServerButtons, v181);
+    end;
+end;
+table.sort(v11.Cosmetics, function(v182, v183) --[[ Line: 1392 ]]
+    return v182[2] > v183[2];
+end);
+v11.UpdateLog = "BIGGERRR **<font color=\"#ADD8E6\">The End Of The Long Wait</font>**\nYour patience and support mean the world to me, thank you. I will make sure this long wait won\226\128\153t be repeated \226\128\148 **you can expect updates every two or three weeks** \240\159\154\128\n-# \226\128\148 \240\159\141\159\n\n-# <i>P.S. expect a rework of a villain's awakening, the new moves MIGHT have some monster or cosmic aspect, we'll see...</i>\n\n## \226\156\168\n## \226\156\182 **<font color=\"#ff5c5c\">KJ</font>** is now available !!\n* **<font color=\"#FFB3B3\">U</font><font color=\"#FFD9B3\">n</font><font color=\"#FFFFB3\">l</font><font color=\"#B3FFB3\">i</font><font color=\"#B3B3FF\">m</font><font color=\"#D9B3FF\">i</font><font color=\"#FFB3FF\">t</font><font color=\"#FFB3B3\">e</font><font color=\"#FFD9B3\">d</font> <font color=\"#FFFFB3\">F</font><font color=\"#B3FFB3\">l</font><font color=\"#B3B3FF\">e</font><font color=\"#D9B3FF\">x</font> <font color=\"#FFB3FF\">W</font><font color=\"#FFB3B3\">o</font><font color=\"#FFD9B3\">r</font><font color=\"#FFFFB3\">k</font><font color=\"#B3FFB3\">s</font>** \226\128\148 has damage requirement \n-# \226\147\152  to prevent chaos, using KJ will teleport you to a separate lobby\n\n## \226\156\182 **<font color=\"#8896ff\">Martial Artist</font>** is now free !!\n* new move: **Grand Fissure** (has finisher)\n* new move: **Last Breath**\n* added **Head First** finisher\n* added passive \226\128\148 uppercut after finisher\n* added awakening aura\n\n## \226\156\182 **New <font color=\"#FFD813\">Early Access</font> Character** \240\159\140\159\n* first move: **Weboom**\n* second move: **Plasma Cannon**\n* third move: **Trinity Tear**\n* fourth move: **Double Trouble**\n* wall combo\n* spawn intro\n\n## \226\156\182 **Snowy Map** \226\157\132\239\184\143\n* Have a snowball fight with your friends!\n* Watch out for mysterious meteors...\n\n* **Bald Hero Awakening**\n\t* **Serious Trashcan**\n\t* **Serious Sneeze**\n\t* **Serious Slap**\n\n* **Retouched Finishers**\n\t* **Whirlwind Kick**\n\t* **Ignition Burst**\n\t* **Windstorm Fury**\n\t\n* **Hero Hunter**\n\t* Added a close range variant to **Crushed Rock**\n\t\n* **New Cosmetics**\n  * Added cosmetic gifting\n  * Webbed Cape\n  * Warden Cape\n  * Ruler Cape\n  * Gold Aura\n  * Midnight Aura\n  * Crimson Aura\n  * Colorful Aura\n  * Glitch Aura\n  * Error Aura\n\n* **100** new emotes\n\t* **New Types**\n\t\t* **Kill Emote**\n\t\t* **Melee Effect**\n\t\t* **Aura Effect**\n\t* You can now gift emotes in bulk\n\n* **Mobile Customization**\n\t* Resize buttons individually \226\128\148 pinch to resize\n\t* Shift lock toggle button\n\n* **VC Servers**\n* **Day & night cycle setting**\n\t* Aurora can be seen at night \226\128\148 gives free emote\n* Accessories will now have good quality \n\n## \240\159\155\160\239\184\143\n* Build Mode\n\t* Spawn trashcan added\n\t* Fixed dragging\n\t* Fixed delayed resizing & repositioning\n\t* Fixed clear not getting rid of destruction parts\n\t* CTRL + V to duplicate selection\n* Replaced Awakening Music That Were Taken Down\n\t* Hero Hunter\n\t* Destructive Cyborg\n\t* Deadly Ninja\n* Whirlwind Drop\n\t* Finisher will now pull enemies in\n\t* Fixed being immune to counters\n* Moves that have an air variation will now be marked\n* Fixed Expulsive Push soft lock bug\n* Fixed Earth Splitting Strike fling bug\n* Fixed Wild Psychic awakening animation being so laggy\n* Fixed Speedblitz Dropkick desynced hitbox\n* Fixed collisions acting weird in private server\n* Fixed an emote bug that broke skills\n* Fixed lag that was creating millions of parts\n* Removed crab\n";
+return v11;
